@@ -1,0 +1,22 @@
+{
+  "name": "lajosbencz/php-goglobalapi",
+  "description": "PHP implementation of GoGlobal API",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lajos Bencz",
+      "email": "lazos@lazos.me"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "src/Enum.php",
+      "src/RequestType.php",
+      "src/RoomType.php",
+      "src/Filter.php",
+      "src/ResultSet.php",
+      "src/API.php"
+    ]
+  }
+}
