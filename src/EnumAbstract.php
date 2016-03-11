@@ -1,19 +1,20 @@
 <?php
 
-namespace LajosBencz\GoGlobal;
+namespace Travelhood\Library\Provider\GoGlobal;
 
-class Enum extends \SplEnum {
+use SplEnum;
+use ReflectionClass;
 
-    private static $constCache = NULL;
-
+abstract class EnumAbstract extends SplEnum
+{
+    private static $_constants = null;
     private static function getConstants() {
-        if (self::$constCache===NULL) {
-            $reflect = new \ReflectionClass(get_called_class());
-            self::$constCache = $reflect->getConstants();
+        if (!self::$_constants) {
+            $reflect = new ReflectionClass(get_called_class());
+            self::$_constants = $reflect->getConstants();
         }
-        return self::$constCache;
+        return self::$_constants;
     }
-
     public static function isValidName($name, $strict=false) {
         $constants = self::getConstants();
         if ($strict) {
@@ -22,12 +23,10 @@ class Enum extends \SplEnum {
         $keys = array_map('strtolower', array_keys($constants));
         return in_array(strtolower($name), $keys);
     }
-
     public static function isValidValue($value) {
         $values = array_values(self::getConstants());
         return in_array($value, $values, $strict=true);
     }
-
     public static function getString($value) {
         return array_search($value, self::getConstants());
     }

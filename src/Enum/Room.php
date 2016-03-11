@@ -1,8 +1,11 @@
 <?php
 
-namespace LajosBencz\GoGlobal;
+namespace Travelhood\Library\Provider\GoGlobal\Enum;
 
-class RoomType extends Enum {
+use Travelhood\Library\Provider\GoGlobal\EnumAbstract;
+
+class Room extends EnumAbstract
+{
     const SINGLE                = "SGL";
     const DOUBLE                = "DBL";
     const TWIN                  = "TWN";
@@ -10,4 +13,3 @@ class RoomType extends Enum {
     const QUAD                  = "QDR";
     const DOUBLE_FOR_SINGLE     = "DBLSGL";
 }
-
