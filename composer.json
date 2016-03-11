@@ -14,7 +14,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Travelhood\\Library\\ProviderGoGlobal\\": "src/"
+      "Travelhood\\Library\\Provider\\GoGlobal\\": "src/"
     }
   }
 }
