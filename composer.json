@@ -1,5 +1,5 @@
 {
-  "name": "lajosbencz/php-goglobalapi",
+  "name": "travelhood/goglobal",
   "description": "PHP implementation of GoGlobal API",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -7,16 +7,19 @@
     {
       "name": "Lajos Bencz",
       "email": "lazos@lazos.me"
+    },
+    {
+      "name": "Tamas Havasi",
+      "email": "tamas.havasi@bonic.hu"
     }
   ],
+  "require": {
+    "php": ">=5.4, <7",
+    "psr/log": "*"
+  },
   "autoload": {
-    "classmap": [
-      "src/Enum.php",
-      "src/RequestType.php",
-      "src/RoomType.php",
-      "src/Filter.php",
-      "src/ResultSet.php",
-      "src/API.php"
-    ]
+    "psr-4": {
+      "Travelhood\\Library\\Provider\\GoGlobal\\": "src/"
+    }
   }
 }
