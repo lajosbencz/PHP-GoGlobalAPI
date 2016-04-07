@@ -3,7 +3,6 @@
 namespace GoGlobal;
 
 use InvalidArgumentException;
-use GoGlobal\LoggerDummy;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use GoGlobal\Request\BookingCancel;
@@ -119,11 +118,11 @@ class Service implements LoggerAwareInterface
     }
 
     public function hotelSearch() {
-        return (new HotelSearch($this));//->getResponse()->getData();
+        return (new HotelSearch($this));
     }
 
     public function hotelSearchGeo() {
-        return (new HotelSearchGeo($this));//'->getResponse()->getData();
+        return (new HotelSearchGeo($this));
     }
 
     public function hotelInfoData($hotelSearchCode) {
