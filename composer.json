@@ -1,5 +1,5 @@
 {
-  "name": "travelhood/goglobal",
+  "name": "lajosbencz/php-goglobalapi",
   "description": "PHP implementation of GoGlobal API",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -19,7 +19,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Travelhood\\Library\\Provider\\GoGlobal\\": "src/"
+      "GoGlobal\\": "src/"
     }
   }
 }
