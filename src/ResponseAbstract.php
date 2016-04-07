@@ -1,9 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use SimpleXMLElement;
-use Travelhood\Paths;
 
 abstract class ResponseAbstract extends ServiceBase implements ResponseInterface {
 
@@ -20,7 +19,6 @@ abstract class ResponseAbstract extends ServiceBase implements ResponseInterface
 	public function setRequest(RequestInterface $request) {
 		$this->_request = $request;
 		$result = $request->getResult();
-        file_put_contents(Paths::Web('/gg.txt'),$request->getBody()."\n".$result);
 		$this->_xml = new SimpleXMLElement($result);
 		if($this->_xml->Main->Error) {
 			throw new Exception($this->_xml->Main->Error.'<br/>'.PHP_EOL.$this->_xml->Main->DebugError);

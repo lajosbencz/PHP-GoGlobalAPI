@@ -1,9 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\RequestInterface;
 
 class AmendmentOptions extends BookingCancel implements RequestInterface
 {

@@ -1,9 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\RequestInterface;
 
 class HotelInfoGeo extends HotelInfo implements RequestInterface
 {
@@ -17,7 +16,7 @@ class HotelInfoGeo extends HotelInfo implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\HotelInfoGeo
+	 * @return \GoGlobal\Response\HotelInfoGeo
 	 */
 	public function getResponse() {
 		return parent::getResponse();

@@ -7,14 +7,19 @@
     {
       "name": "Lajos Bencz",
       "email": "lazos@lazos.me"
+    },
+    {
+      "name": "Tamas Havasi",
+      "email": "tamas.havasi@bonic.hu"
     }
   ],
   "require": {
+    "php": ">=5.4, <7",
     "psr/log": "*"
   },
   "autoload": {
     "psr-4": {
-      "Travelhood\\Library\\Provider\\GoGlobal\\": "src/"
+      "GoGlobal\\": "src/"
     }
   }
 }

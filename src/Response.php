@@ -1,9 +1,9 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use SimpleXMLElement;
-use Travelhood\Library\Provider\GoGlobal\Enum\Star;
+use GoGlobal\Enum\Star;
 
 class Response
 {
@@ -34,7 +34,7 @@ class Response
                 }
                 $cat = (string)$row->Category;
                 $i = [
-                    'pid' => string_to_int($row->HotelSearchCode),
+                    'pid' => (string)$row->HotelSearchCode,
                     'hotel_unique' => $u[0],
                     'hotel_search_code' => (string)$row->HotelSearchCode,
                     'hotel_code' => (string)$row->HotelCode,

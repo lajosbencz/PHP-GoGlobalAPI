@@ -1,9 +1,9 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\RequestAbstract;
+use GoGlobal\RequestInterface;
 
 class AmendmentRequest extends RequestAbstract implements RequestInterface
 {

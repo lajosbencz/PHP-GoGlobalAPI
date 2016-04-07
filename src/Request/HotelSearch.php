@@ -1,17 +1,17 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
 use DateTime;
-use Travelhood\Library\Provider\GoGlobal\Exception;
-//use Travelhood\Library\Provider\GoGlobal\Service;
-use Travelhood\Library\Provider\GoGlobal\Helper;
-//use Travelhood\Library\Provider\GoGlobal\Enum\Room as RoomEnum;
-use Travelhood\Library\Provider\GoGlobal\Enum\Sort as SortEnum;
-use Travelhood\Library\Provider\GoGlobal\Enum\Category as CategoryEnum;
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
-use Travelhood\Library\Provider\GoGlobal\Room;
+use GoGlobal\Exception;
+//use GoGlobal\Service;
+use GoGlobal\Helper;
+//use GoGlobal\Enum\Room as RoomEnum;
+use GoGlobal\Enum\Sort as SortEnum;
+use GoGlobal\Enum\Category as CategoryEnum;
+use GoGlobal\RequestAbstract;
+use GoGlobal\RequestInterface;
+use GoGlobal\Room;
 
 class HotelSearch extends RequestAbstract implements RequestInterface
 {
@@ -195,7 +195,7 @@ class HotelSearch extends RequestAbstract implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\HotelSearch
+	 * @return \GoGlobal\Response\HotelSearch
 	 */
 	public function getResponse() {
 		return parent::getResponse();

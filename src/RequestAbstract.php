@@ -1,6 +1,6 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 abstract class RequestAbstract extends ServiceBase implements RequestInterface
 {
@@ -42,13 +42,22 @@ abstract class RequestAbstract extends ServiceBase implements RequestInterface
 
 	public function getResult() {
 		if(!$this->_result) {
+			$log = $this->getService()->getLogger();
 			$xml = $this->toString();
-			$this->getService()->getLogger()->debug('BUILT: '.get_class($this).PHP_EOL.trim($xml).PHP_EOL);
-			$this->_result = $this->getWSDL()->MakeRequest([
-				'requestType' => static::getRequestType(),
-				'xmlRequest'  => $xml,
-			])->MakeRequestResult;
-            $this->getService()->getLogger()->debug('DONE: '.get_class($this).PHP_EOL.trim($this->_result).PHP_EOL);
+			if($log) $log->debug('BUILT: '.get_class($this).PHP_EOL.trim($xml).PHP_EOL);
+            if($this->getService()->getCompress()) {
+                $result = $this->getWSDL()->MakeRequestCompressed([
+                    'requestType' => static::getRequestType(),
+                    'xmlRequest' => $xml,
+                ])->MakeRequestCompressedResult;
+                $this->_result = gzdecode($result);
+            } else {
+                $this->_result = $this->getWSDL()->MakeRequest([
+                    'requestType' => static::getRequestType(),
+                    'xmlRequest' => $xml,
+                ])->MakeRequestResult;
+            }
+            if($log) $log->debug('DONE: '.get_class($this).PHP_EOL.trim($this->_result).PHP_EOL);
             //dump(htmlentities($this->getWSDL()->__getLastRequest())); dump(htmlentities($this->toXml())); exit;
 		}
 		return $this->_result;

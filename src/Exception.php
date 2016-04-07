@@ -1,8 +1,10 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
-class Exception extends \Exception
+use Exception as ExceptionBase;
+
+class Exception extends ExceptionBase
 {
 
 }

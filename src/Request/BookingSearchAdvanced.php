@@ -1,12 +1,10 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use DateTime;
-use Travelhood\Library\Provider\GoGlobal\Exception;
-use Travelhood\Library\Provider\GoGlobal\Helper;
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\Helper;
+use GoGlobal\RequestAbstract;
+use GoGlobal\RequestInterface;
 
 class BookingSearchAdvanced extends RequestAbstract implements RequestInterface
 {
@@ -92,7 +90,7 @@ class BookingSearchAdvanced extends RequestAbstract implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\BookingSearchAdvanced
+	 * @return \GoGlobal\Response\BookingSearchAdvanced
 	 */
 	public function getResponse() {
 		return parent::getResponse();

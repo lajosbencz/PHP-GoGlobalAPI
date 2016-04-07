@@ -1,8 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
-use Travelhood\Library\Provider\GoGlobal\Enum\Room as RoomEnum;
+use GoGlobal\Enum\Room as RoomEnum;
 
 class Room {
 
@@ -62,7 +62,7 @@ class Room {
 	public function setRoomType($type) {
 		$this->_roomType = $type;
 		if(RoomEnum::isValidName($type)) {
-			$type = RoomEnum::$type;
+			$type = constant("RoomEnum::$type");
 		}
 		if(!RoomEnum::isValidValue($type)) {
 			throw new Exception("Invalid Room type: {$type}");
@@ -155,11 +155,11 @@ class Room {
 		$xml.= '>';
 		$xml.= '<Room RoomID="'.$roomId.'">';
 		for($a=0; $a<$this->countAdults(); $a++) {
-			$xml.= '<PersonName PersonID="'.$pid.'">'.strtoupper(stripAccents($this->getAdultName($a))).'</PersonName>';
+			$xml.= '<PersonName PersonID="'.$pid.'">'.strtoupper(Helper::stripAccent($this->getAdultName($a))).'</PersonName>';
 			$pid++;
 		}
 		for($c=0; $c<$this->countChildren(); $c++) {
-			$xml.= '<ExtraBed PersonID="'.$pid.'" ChildAge="'.$this->getChildAge($c).'">'.strtoupper(stripAccents($this->getChildName($c))).'</ExtraBed>';
+			$xml.= '<ExtraBed PersonID="'.$pid.'" ChildAge="'.$this->getChildAge($c).'">'.strtoupper(Helper::stripAccent($this->getChildName($c))).'</ExtraBed>';
 			$pid++;
 		}
 		$xml.= '</Room>';

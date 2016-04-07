@@ -1,18 +1,17 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use InvalidArgumentException;
+use GoGlobal\DummyLogger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use SimpleXMLElement;
-use Travelhood\Library\Provider\GoGlobal\Enum\Request as RequestEnum;
-use Travelhood\Library\Provider\GoGlobal\Request\BookingCancel;
-use Travelhood\Library\Provider\GoGlobal\Request\BookingInsert;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelInfo;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelInfoGeo;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelSearch;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelSearchGeo;
+use GoGlobal\Request\BookingCancel;
+use GoGlobal\Request\BookingInsert;
+use GoGlobal\Request\HotelInfo;
+use GoGlobal\Request\HotelInfoGeo;
+use GoGlobal\Request\HotelSearch;
+use GoGlobal\Request\HotelSearchGeo;
 
 class Service implements LoggerAwareInterface
 {
@@ -29,28 +28,29 @@ class Service implements LoggerAwareInterface
     protected $_agency;
     protected $_user;
     protected $_password;
-    protected $_url;
-    protected $_wsdl;
+    protected $_compress = false;
+    protected $_url = self::URL_SERVICE;
     protected $_maxResult = 10000;
     protected $_timeout = 60;
     protected $_logger;
+    protected $_wsdl;
 
 
-    public function __construct($config = array()) {
-        foreach(array('agency', 'user', 'password') as $ck) {
+    public function __construct($config = []) {
+        foreach(['agency', 'user', 'password'] as $ck) {
             if(!array_key_exists($ck, $config) || strlen($config[$ck]) < 1) {
                 throw new InvalidArgumentException("Missing config value: [".$ck."]");
             }
         }
-        $this->_agency 		= $config['agency'];
-        $this->_user 		= $config['user'];
-        $this->_password 	= $config['password'];
-        if(array_key_exists('url', $config)) {
-            $this->_url 	= $config['url'];
-        } else {
-            $this->_url 	= self::URL_SERVICE;
+        foreach(['agency', 'user', 'password', 'compress', 'url', 'maxResult', 'timeout', 'logger'] as $ck) {
+            if(array_key_exists($ck, $config)) {
+                $this->{'_'.$ck} = $config[$ck];
+            }
         }
-        $this->_wsdl = new SoapClient($this->_url."?WSDL", ['trace'=>1,'connection_timeout'=>30000,'exceptions'=>1]);
+        if(!array_key_exists('logger', $config)) {
+            $this->_logger = new DummyLogger;
+        }
+        $this->_wsdl = new SoapClient($this->_url."?WSDL", ['trace'=>1,'connection_timeout'=>$this->getTimeout(),'exceptions'=>1,'cache_wsdl'=>WSDL_CACHE_MEMORY]);
         $this->_wsdl->setService($this);
         if(!self::$_default) {
             self::setDefault($this);
@@ -87,6 +87,17 @@ class Service implements LoggerAwareInterface
 
     public function getPassword() {
         return $this->_password;
+    }
+
+    public function getCompress()
+    {
+        return $this->_compress;
+    }
+
+    public function setCompress($compress)
+    {
+        $this->_compress = $compress;
+        return $this;
     }
 
     public function setMaxResult($max) {

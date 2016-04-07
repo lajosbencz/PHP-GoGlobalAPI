@@ -1,9 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\RequestInterface;
 
 class BookingSearch extends BookingCancel implements RequestInterface
 {
@@ -17,7 +16,7 @@ class BookingSearch extends BookingCancel implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\BookingSearch
+	 * @return \GoGlobal\Response\BookingSearch
 	 */
 	public function getResponse() {
 		return parent::getResponse();

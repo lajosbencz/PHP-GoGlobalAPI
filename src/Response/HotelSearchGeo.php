@@ -1,12 +1,10 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Response;
+namespace GoGlobal\Response;
 
-use SimpleXMLElement;
-use Travelhood\Library\Provider\GoGlobal\Enum\Category as CategoryEnum;
-use Travelhood\Library\Provider\GoGlobal\Helper;
-use Travelhood\Library\Provider\GoGlobal\ResponseAbstract;
-use Travelhood\Library\Provider\GoGlobal\ResponseInterface;
+use GoGlobal\Helper;
+use GoGlobal\ResponseAbstract;
+use GoGlobal\ResponseInterface;
 
 class HotelSearchGeo extends ResponseAbstract implements ResponseInterface
 {
@@ -45,7 +43,7 @@ class HotelSearchGeo extends ResponseAbstract implements ResponseInterface
 	];
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Request\HotelSearchGeo
+	 * @return \GoGlobal\Request\HotelSearchGeo
 	 */
 	public function getRequest() {
 		return parent::getRequest();
