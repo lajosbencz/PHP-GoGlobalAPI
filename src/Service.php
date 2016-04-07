@@ -3,7 +3,7 @@
 namespace GoGlobal;
 
 use InvalidArgumentException;
-use GoGlobal\DummyLogger;
+use GoGlobal\LoggerDummy;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
 use GoGlobal\Request\BookingCancel;
@@ -47,8 +47,10 @@ class Service implements LoggerAwareInterface
                 $this->{'_'.$ck} = $config[$ck];
             }
         }
-        if(!array_key_exists('logger', $config)) {
-            $this->_logger = new DummyLogger;
+        if(!array_key_exists('logger', $config) || !($config['logger'] instanceof LoggerInterface)) {
+            $this->_logger = new LoggerDummy;
+        } else {
+            $this->_logger = $config['logger'];
         }
         $this->_wsdl = new SoapClient($this->_url."?WSDL", ['trace'=>1,'connection_timeout'=>$this->getTimeout(),'exceptions'=>1,'cache_wsdl'=>WSDL_CACHE_MEMORY]);
         $this->_wsdl->setService($this);
