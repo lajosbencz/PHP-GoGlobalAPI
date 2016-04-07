@@ -1,17 +1,17 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use InvalidArgumentException;
-use LajosBencz\GoGlobalApi\DummyLogger;
+use GoGlobal\DummyLogger;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Log\LoggerInterface;
-use Travelhood\Library\Provider\GoGlobal\Request\BookingCancel;
-use Travelhood\Library\Provider\GoGlobal\Request\BookingInsert;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelInfo;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelInfoGeo;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelSearch;
-use Travelhood\Library\Provider\GoGlobal\Request\HotelSearchGeo;
+use GoGlobal\Request\BookingCancel;
+use GoGlobal\Request\BookingInsert;
+use GoGlobal\Request\HotelInfo;
+use GoGlobal\Request\HotelInfoGeo;
+use GoGlobal\Request\HotelSearch;
+use GoGlobal\Request\HotelSearchGeo;
 
 class Service implements LoggerAwareInterface
 {

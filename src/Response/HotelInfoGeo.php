@@ -1,11 +1,11 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Response;
+namespace GoGlobal\Response;
 
-use Travelhood\Library\Provider\GoGlobal\Enum\Category as CategoryEnum;
-use Travelhood\Library\Provider\GoGlobal\Helper;
-use Travelhood\Library\Provider\GoGlobal\ResponseAbstract;
-use Travelhood\Library\Provider\GoGlobal\ResponseInterface;
+use GoGlobal\Enum\Category as CategoryEnum;
+use GoGlobal\Helper;
+use GoGlobal\ResponseAbstract;
+use GoGlobal\ResponseInterface;
 
 class HotelInfoGeo extends ResponseAbstract implements ResponseInterface
 {

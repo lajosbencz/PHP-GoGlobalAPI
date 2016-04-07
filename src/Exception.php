@@ -1,6 +1,6 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use Exception as ExceptionBase;
 

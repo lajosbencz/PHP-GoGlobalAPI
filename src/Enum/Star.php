@@ -1,8 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Enum;
+namespace GoGlobal\Enum;
 
-use Travelhood\Library\Provider\GoGlobal\EnumAbstract;
+use GoGlobal\EnumAbstract;
 
 class Star extends EnumAbstract
 {

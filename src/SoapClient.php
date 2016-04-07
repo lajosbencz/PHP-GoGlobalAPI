@@ -1,10 +1,10 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 /**
  * Class SoapClient
- * @package Travelhood\Library\Provider\GoGlobal
+ * @package GoGlobal
  * @method object MakeRequest(array $args)
  * @method object MakeRequestCompressed(array $args)
  */

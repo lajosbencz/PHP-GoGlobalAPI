@@ -1,8 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Response;
+namespace GoGlobal\Response;
 
-use Travelhood\Library\Provider\GoGlobal\ResponseInterface;
+use GoGlobal\ResponseInterface;
 
 class HotelSearch extends HotelSearchGeo implements ResponseInterface
 {

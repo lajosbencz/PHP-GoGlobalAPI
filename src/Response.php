@@ -1,9 +1,9 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 use SimpleXMLElement;
-use Travelhood\Library\Provider\GoGlobal\Enum\Star;
+use GoGlobal\Enum\Star;
 
 class Response
 {

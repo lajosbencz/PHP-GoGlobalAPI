@@ -1,13 +1,13 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
 use DateTime;
-use Travelhood\Library\Provider\GoGlobal\Exception;
-use Travelhood\Library\Provider\GoGlobal\Helper;
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
-use Travelhood\Library\Provider\GoGlobal\Room;
+use GoGlobal\Exception;
+use GoGlobal\Helper;
+use GoGlobal\RequestAbstract;
+use GoGlobal\RequestInterface;
+use GoGlobal\Room;
 
 class BookingInsert extends RequestAbstract implements RequestInterface
 {
@@ -171,7 +171,7 @@ class BookingInsert extends RequestAbstract implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\BookingInsert
+	 * @return \GoGlobal\Response\BookingInsert
 	 */
 	public function getResponse() {
 		return parent::getResponse();

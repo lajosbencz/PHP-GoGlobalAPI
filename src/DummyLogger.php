@@ -1,7 +1,7 @@
 <?php
 
 
-namespace LajosBencz\GoGlobalApi;
+namespace GoGlobal;
 
 
 use Psr\Log\LoggerInterface;

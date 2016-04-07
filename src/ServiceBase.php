@@ -1,6 +1,6 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
 abstract class ServiceBase {
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal\Request;
+namespace GoGlobal\Request;
 
-use Travelhood\Library\Provider\GoGlobal\Helper;
-use Travelhood\Library\Provider\GoGlobal\RequestAbstract;
-use Travelhood\Library\Provider\GoGlobal\RequestInterface;
+use GoGlobal\Helper;
+use GoGlobal\RequestAbstract;
+use GoGlobal\RequestInterface;
 
 class VoucherDetails extends RequestAbstract implements RequestInterface
 {
@@ -45,7 +45,7 @@ class VoucherDetails extends RequestAbstract implements RequestInterface
 	}
 
 	/**
-	 * @return \Travelhood\Library\Provider\GoGlobal\Response\VoucherDetails
+	 * @return \GoGlobal\Response\VoucherDetails
 	 */
 	public function getResponse() {
 		return parent::getResponse();

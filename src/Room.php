@@ -1,8 +1,8 @@
 <?php
 
-namespace Travelhood\Library\Provider\GoGlobal;
+namespace GoGlobal;
 
-use Travelhood\Library\Provider\GoGlobal\Enum\Room as RoomEnum;
+use GoGlobal\Enum\Room as RoomEnum;
 
 class Room {
 
